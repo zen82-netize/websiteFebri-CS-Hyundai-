@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi | Febri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SwiperJS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glassmorphism:hover {
+            /* Efek glow saat disentuh */
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            border-color: rgba(6, 182, 212, 0.7);
+        }
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: gradient-animation 10s ease infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+
+        /* Styling untuk Slider Hero */
+        .hero-slider {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Overlay lebih gelap untuk kontras teks */
+        }
+        .slide-content {
+            z-index: 10;
+        }
+        :root {
+            --swiper-navigation-color: #fff;
+            --swiper-pagination-color: #06b6d4; /* Warna cyan */
+        }
+
+        /* Animasi baru untuk elemen yang bisa di-klik */
+        .clickable-anim {
+            transition: all 0.3s ease;
+        }
+        .clickable-anim:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+        .clickable-anim:active {
+            transform: translateY(0px) scale(0.98);
+        }
+        
+        /* Animasi zoom untuk gambar proyek */
+        .group:hover .zoom-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 top-0 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white clickable-anim">Febri.</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#beranda" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
+                <a href="#tentang" class="hover:text-cyan-400 transition-colors duration-300">Tentang Saya</a>
+                <a href="#proyek" class="hover:text-cyan-400 transition-colors duration-300">Proyek</a>
+                <a href="#kontak" class="hover:text-cyan-400 transition-colors duration-300">Kontak</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block text-center hover:bg-gray-700 rounded-md py-2 transition-colors duration-300">Beranda</a>
+            <a href="#tentang" class="block text-center hover:bg-gray-700 rounded-md py-2 transition-colors duration-300">Tentang Saya</a>
+            <a href="#proyek" class="block text-center hover:bg-gray-700 rounded-md py-2 transition-colors duration-300">Proyek</a>
+            <a href="#kontak" class="block text-center hover:bg-gray-700 rounded-md py-2 transition-colors duration-300">Kontak</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Bagian Hero Slider -->
+        <section id="beranda" class="overflow-hidden">
+            <div class="swiper hero-slider">
+                <div class="swiper-wrapper">
+                    <!-- GANTI GAMBAR DI SINI (Slide 1) -->
+                    <div class="swiper-slide" style="background-image: url('2.PNG');" onerror="this.style.backgroundImage=`url('https://placehold.co/1920x1080/111827/FFFFFF?text=EV+Charger+di+Rumah')`">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content text-center px-6 max-w-4xl">
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4" data-aos="zoom-in-down">
+                                Pengisian Daya EV Modern
+                            </h1>
+                            <p class="text-lg md:text-xl text-gray-300 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                                Solusi Cepat & Andal dari <span class="text-cyan-400 font-semibold">Autel</span> untuk Kendaraan Hyundai Anda.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- GANTI GAMBAR DI SINI (Slide 2) -->
+                    <div class="swiper-slide" style="background-image: url('3.PNG');" onerror="this.style.backgroundImage=`url('https://placehold.co/1920x1080/1F2937/FFFFFF?text=Instalasi+Profesional')`">
+                        <div class="slide-overlay"></div>
+                         <div class="slide-content text-center px-6 max-w-4xl">
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                                Layanan Profesional & Terpercaya
+                            </h1>
+                            <p class="text-lg md:text-xl text-gray-300 mx-auto">
+                                Dari proses instalasi hingga layanan purna jual, kami siap membantu Anda.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- GANTI GAMBAR DI SINI (Slide 3) -->
+                    <div class="swiper-slide" style="background-image: url('1.PNG');" onerror="this.style.backgroundImage=`url('https://placehold.co/1920x1080/374151/FFFFFF?text=Masa+Depan+Mobilitas')`">
+                        <div class="slide-overlay"></div>
+                         <div class="slide-content text-center px-6 max-w-4xl">
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                                Menuju Mobilitas Hijau
+                            </h1>
+                            <p class="text-lg md:text-xl text-gray-300 mx-auto">
+                                Bersama Autel, kita wujudkan transisi energi yang lebih bersih di Indonesia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Bagian Tentang Saya -->
+        <section id="tentang" class="py-20 bg-gray-900 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Tentang Saya</h2>
+                    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded"></div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/3" data-aos="fade-right">
+                        <div class="p-2 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
+                            <img src="feb.jpg" alt="Foto profil Febri" class="rounded-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/400x400/111827/FFFFFF?text=Foto+Febri';">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3" data-aos="fade-left">
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Halo! Nama saya Febri. Saya adalah seorang Customer Service yang berfokus pada produk home charger Autel 7 kW, khususnya untuk para pemilik mobil listrik Hyundai. Saya memiliki semangat tinggi dalam membantu pelanggan menemukan solusi pengisian daya yang tepat dan memastikan instalasi berjalan lancar.
+                        </p>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Saya percaya bahwa adopsi mobil listrik adalah masa depan, dan saya bangga menjadi bagian dari ekosistem ini dengan menyediakan layanan purna jual yang andal dan informatif untuk produk Autel.
+                        </p>
+                        <div class="flex flex-wrap gap-4" data-aos="zoom-in" data-aos-delay="200">
+                            <span class="bg-gray-800 text-cyan-400 text-sm font-medium px-4 py-2 rounded-full">Customer Service</span>
+                            <span class="bg-gray-800 text-cyan-400 text-sm font-medium px-4 py-2 rounded-full">EV Home Charger</span>
+                            <span class="bg-gray-800 text-cyan-400 text-sm font-medium px-4 py-2 rounded-full">Autel 7 kW</span>
+                            <span class="bg-gray-800 text-cyan-400 text-sm font-medium px-4 py-2 rounded-full">Hyundai EV</span>
+                            <span class="bg-gray-800 text-cyan-400 text-sm font-medium px-4 py-2 rounded-full">Instalasi Listrik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Proyek -->
+        <section id="proyek" class="py-20 bg-gray-800/50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Proyek & Pengalaman</h2>
+                    <p class="text-gray-400 mt-2">Beberapa kegiatan yang pernah saya tangani.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Proyek 1 -->
+                    <div class="glassmorphism rounded-xl overflow-hidden group" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="overflow-hidden">
+                           <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Instalasi+Charger" alt="Instalasi Home Charger 7 kW" class="w-full h-48 object-cover zoom-image transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Instalasi Home Charger 7 kW</h3>
+                            <p class="text-gray-400 mb-4">Terlibat langsung dalam proses instalasi unit home charger Autel 7 kW di kediaman pelanggan, memastikan semua berfungsi dengan sempurna.</p>
+                            <a href="#" class="text-cyan-400 hover:text-cyan-300 font-semibold clickable-anim inline-block">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Proyek 2 -->
+                    <div class="glassmorphism rounded-xl overflow-hidden group" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="overflow-hidden">
+                           <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Uji+Kompatibilitas" alt="Kompatabilitas dengan ICON+" class="w-full h-48 object-cover zoom-image transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Kompatibilitas Unit & ICON+</h3>
+                            <p class="text-gray-400 mb-4">Berkoordinasi dalam proyek untuk memastikan kompatibilitas unit charger Autel 7 kW terbaru dengan infrastruktur dari pihak ICON+.</p>
+                            <a href="#" class="text-cyan-400 hover:text-cyan-300 font-semibold clickable-anim inline-block">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Proyek 3 -->
+                    <div class="glassmorphism rounded-xl overflow-hidden group" data-aos="zoom-in-up" data-aos-delay="300">
+                        <div class="overflow-hidden">
+                            <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Promosi+Autel" alt="Promosi Merek Autel" class="w-full h-48 object-cover zoom-image transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Promosi Merek Autel</h3>
+                            <p class="text-gray-400 mb-4">Ikut serta dalam kegiatan promosi untuk memperkenalkan keunggulan charger Autel 7 kW ke pasar mobil listrik Indonesia yang berkembang.</p>
+                            <a href="#" class="text-cyan-400 hover:text-cyan-300 font-semibold clickable-anim inline-block">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section id="kontak" class="py-20 bg-gray-900 overflow-hidden">
+            <div class="container mx-auto px-6 max-w-2xl text-center" data-aos="zoom-in">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Hubungi Saya</h2>
+                    <p class="text-gray-400 mt-2">Punya pertanyaan atau ingin bekerja sama? Jangan ragu untuk menghubungi saya!</p>
+                </div>
+                <form action="#" method="POST">
+                    <div class="flex flex-col md:flex-row gap-4 mb-4">
+                        <input type="text" placeholder="Nama Anda" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
+                        <input type="email" placeholder="Email Anda" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white">
+                    </div>
+                    <textarea placeholder="Pesan Anda" rows="5" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-white"></textarea>
+                    <button type="submit" class="bg-cyan-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-cyan-600 w-full md:w-auto clickable-anim shadow-lg shadow-cyan-500/20">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Febri. Dibuat dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+    <!-- SwiperJS JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inisialisasi Slider Hero
+        const swiper = new Swiper('.hero-slider', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 50,
+            easing: 'ease-in-out',
+        });
+
+        // JavaScript untuk menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a, header nav a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
